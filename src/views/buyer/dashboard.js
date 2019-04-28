@@ -28,7 +28,6 @@ class DashBoardBuyer extends React.Component {
                             <Records />
                         </Tab>
                         <Tab eventKey="messages" title="MESSAGES">
-                            <h1>MESSAGES</h1>
                             <Messages />
                         </Tab>
                     </Tabs>

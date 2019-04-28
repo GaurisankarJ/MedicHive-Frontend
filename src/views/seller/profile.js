@@ -139,7 +139,7 @@ class CreateProfileSeller extends React.Component {
                         </label>
                         <br />
                         <label htmlFor="profile_seller_occupation">
-                            <h4>AGE:</h4>
+                            <h4>OCCUPATION:</h4>
                             <input id="profile_seller_occupation" className="form-control" value={this.state.occupation} type="text" placeholder="Occupation" onChange={this.handleChangeOccupation} required />
                         </label>
                         <br />
