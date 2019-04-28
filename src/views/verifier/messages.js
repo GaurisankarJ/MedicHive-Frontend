@@ -36,7 +36,7 @@ class Messages extends React.Component {
         axios({
             method: "get",
             url: "/message/me",
-            headers: { "x-auth": localStorage.getItem("token") }
+            headers: { "x-auth": sessionStorage.getItem("token") }
         }).then((res) => {
             console.log(res.data);
 
@@ -122,7 +122,7 @@ class Messages extends React.Component {
         axios({
             method: "get",
             url: `/verify/v?id=${message._id}`,
-            headers: { "x-auth": localStorage.getItem("token") }
+            headers: { "x-auth": sessionStorage.getItem("token") }
         }).then((res) => {
             console.log(res.data);
 
@@ -171,7 +171,7 @@ class Messages extends React.Component {
             method: "post",
             url: "/verify/v",
             data: body,
-            headers: { "x-auth": localStorage.getItem("token") }
+            headers: { "x-auth": sessionStorage.getItem("token") }
         }).then((res) => {
             console.log(res.data);
 
@@ -210,7 +210,7 @@ class Messages extends React.Component {
             method: "post",
             url: "/share/v",
             data: body,
-            headers: { "x-auth": localStorage.getItem("token") }
+            headers: { "x-auth": sessionStorage.getItem("token") }
         }).then((res) => {
             console.log(res.data);
 

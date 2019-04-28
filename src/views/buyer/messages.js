@@ -22,7 +22,7 @@ class Messages extends React.Component {
         axios({
             method: "get",
             url: "/message/me",
-            headers: { "x-auth": localStorage.getItem("token") }
+            headers: { "x-auth": sessionStorage.getItem("token") }
         }).then((res) => {
             console.log(res.data);
 

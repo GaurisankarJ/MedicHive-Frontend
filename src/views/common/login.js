@@ -46,16 +46,16 @@ class Login extends React.Component {
         }).then((res) => {
             console.log(res.data);
 
-            localStorage.setItem("token", res.headers["x-auth"]);
-            localStorage.setItem("email", res.data.email);
-            localStorage.setItem("userType", res.data.userType);
-            localStorage.setItem("isActive", res.data.isActive);
+            sessionStorage.setItem("token", res.headers["x-auth"]);
+            sessionStorage.setItem("email", res.data.email);
+            sessionStorage.setItem("userType", res.data.userType);
+            sessionStorage.setItem("isActive", res.data.isActive);
 
-            if (localStorage.getItem("userType") === "b") {
+            if (sessionStorage.getItem("userType") === "b") {
                 this.props.history.push("/dashboard/b");
-            } else if (localStorage.getItem("userType") === "s") {
+            } else if (sessionStorage.getItem("userType") === "s") {
                 this.props.history.push("/dashboard/s");
-            } else if (localStorage.getItem("userType") === "v") {
+            } else if (sessionStorage.getItem("userType") === "v") {
                 this.props.history.push("/dashboard/v");
             }
         }).catch((err) => {

@@ -21,34 +21,34 @@ class Header extends React.Component {
         axios({
             method: "delete",
             url: "/users/logout",
-            headers: { "x-auth": localStorage.getItem("token") }
+            headers: { "x-auth": sessionStorage.getItem("token") }
         }).then((res) => {
             console.log(res.data);
 
-            localStorage.removeItem("token");
+            sessionStorage.clear();
 
             this.props.history.push("/");
         }).catch((err) => {
             console.log(err);
 
-            localStorage.removeItem("token");
+            sessionStorage.clear();
 
             this.props.history.push("/error");
         });
     }
 
     renderProfile() {
-        if (localStorage.getItem("userType") === "b") {
+        if (sessionStorage.getItem("userType") === "b") {
             return (
                 <li><Link to="/profile/b">Me</Link></li>
             );
         }
-        if (localStorage.getItem("userType") === "s") {
+        if (sessionStorage.getItem("userType") === "s") {
             return (
                 <li><Link to="/profile/s">Me</Link></li>
             );
         }
-        if (localStorage.getItem("userType") === "v") {
+        if (sessionStorage.getItem("userType") === "v") {
             return (
                 <li><Link to="/profile/v">Me</Link></li>
             );
@@ -56,17 +56,17 @@ class Header extends React.Component {
     }
 
     renderDashboard() {
-        if (localStorage.getItem("userType") === "b") {
+        if (sessionStorage.getItem("userType") === "b") {
             return (
                 <li><Link to="/dashboard/b">Dashboard</Link></li>
             );
         }
-        if (localStorage.getItem("userType") === "s") {
+        if (sessionStorage.getItem("userType") === "s") {
             return (
                 <li><Link to="/dashboard/s">Dashboard</Link></li>
             );
         }
-        if (localStorage.getItem("userType") === "v") {
+        if (sessionStorage.getItem("userType") === "v") {
             return (
                 <li><Link to="/dashboard/v">Dashboard</Link></li>
             );
@@ -74,7 +74,7 @@ class Header extends React.Component {
     }
 
     render() {
-        if (localStorage.getItem("token")) {
+        if (sessionStorage.getItem("token")) {
             return (
                 <div>
                     <div id="header" className="row">

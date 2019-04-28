@@ -54,7 +54,7 @@ class Records extends React.Component {
         axios({
             method: "get",
             url: "/record",
-            headers: { "x-auth": localStorage.getItem("token") }
+            headers: { "x-auth": sessionStorage.getItem("token") }
         }).then((res) => {
             console.log(res.data.record);
 
@@ -68,7 +68,7 @@ class Records extends React.Component {
         axios({
             method: "get",
             url: "/users?userType=s",
-            headers: { "x-auth": localStorage.getItem("token") }
+            headers: { "x-auth": sessionStorage.getItem("token") }
         }).then((res) => {
             console.log(res.data);
 
@@ -326,7 +326,7 @@ class Records extends React.Component {
             method: "patch",
             url: "/record",
             data: body,
-            headers: { "x-auth": localStorage.getItem("token") }
+            headers: { "x-auth": sessionStorage.getItem("token") }
         }).then((res) => {
             console.log(res.data);
 
@@ -373,7 +373,7 @@ class Records extends React.Component {
             method: "patch",
             url: `/record/${this.state.id}`,
             data: body,
-            headers: { "x-auth": localStorage.getItem("token") }
+            headers: { "x-auth": sessionStorage.getItem("token") }
         }).then((res) => {
             console.log(res.data);
 
@@ -408,7 +408,7 @@ class Records extends React.Component {
         axios({
             method: "delete",
             url: `/record/${this.state.id}`,
-            headers: { "x-auth": localStorage.getItem("token") }
+            headers: { "x-auth": sessionStorage.getItem("token") }
         }).then((res) => {
             console.log(res.data);
 
@@ -459,7 +459,7 @@ class Records extends React.Component {
             method: "post",
             url: "/share/v",
             data: body,
-            headers: { "x-auth": localStorage.getItem("token") }
+            headers: { "x-auth": sessionStorage.getItem("token") }
         }).then((res) => {
             console.log(res.data);
 

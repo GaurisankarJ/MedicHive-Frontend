@@ -56,14 +56,14 @@ class CreateProfileVerifier extends React.Component {
             method: "post",
             url: "/users/me",
             data: body,
-            headers: { "x-auth": localStorage.getItem("token") }
+            headers: { "x-auth": sessionStorage.getItem("token") }
         }).then((res) => {
             console.log(res.data);
 
             axios({
                 method: "post",
                 url: "/record",
-                headers: { "x-auth": localStorage.getItem("token") }
+                headers: { "x-auth": sessionStorage.getItem("token") }
             }).then((resp) => {
                 console.log(resp.data);
 
@@ -132,7 +132,7 @@ class ProfileVerifier extends React.Component {
         axios({
             method: "get",
             url: "/users/me",
-            headers: { "x-auth": localStorage.getItem("token") }
+            headers: { "x-auth": sessionStorage.getItem("token") }
         }).then((res) => {
             console.log(res.data);
 
@@ -180,7 +180,7 @@ class ProfileVerifier extends React.Component {
             method: "patch",
             url: "/users/me",
             data: body,
-            headers: { "x-auth": localStorage.getItem("token") }
+            headers: { "x-auth": sessionStorage.getItem("token") }
         }).then((res) => {
             console.log(res.data);
 
@@ -194,7 +194,7 @@ class ProfileVerifier extends React.Component {
     }
 
     activate() {
-        if (localStorage.getItem("isActive") === "true") {
+        if (sessionStorage.getItem("isActive") === "true") {
             return (
                 <h3>ACCOUNT IS ACTIVE</h3>
             );
@@ -208,7 +208,7 @@ class ProfileVerifier extends React.Component {
         axios({
             method: "get",
             url: "/users/activate",
-            headers: { "x-auth": localStorage.getItem("token") }
+            headers: { "x-auth": sessionStorage.getItem("token") }
         }).then((res) => {
             console.log(res.data);
         }).catch((err) => {
