@@ -47,7 +47,6 @@ const App = () => (
     </div>
 );
 
-
 export default App;
 
 ReactDOM.render(
